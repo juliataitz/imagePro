@@ -30,8 +30,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.presentViewController(imagePickerView, animated: true, completion: nil)
         
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        var image = info[UIImagePickerControllerOriginalImage] as UIImage
+        PhotoOpeningView.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     @IBAction func ApplyFilter(sender: AnyObject) {
+        
     }
     @IBAction func SaveImage(sender: AnyObject) {
     }
