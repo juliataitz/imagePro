@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var PhotoOpeningView: UIImageView!
     
@@ -23,6 +23,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func ChooseImage(sender: AnyObject) {
+        let imagePickerView = UIImagePickerController()
+        imagePickerView.delegate = self
+        //Select the image from photo library
+        imagePickerView.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePickerView, animated: true, completion: nil)
+        
     }
 
     @IBAction func ApplyFilter(sender: AnyObject) {
